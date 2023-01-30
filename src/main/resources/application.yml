@@ -2,6 +2,9 @@
 # Kafka
 spring:
   kafka:
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.IntegerSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
     consumer:
       bootstrap-servers: localhost:9092
       group-id: group_id
@@ -12,7 +15,3 @@ spring:
       properties:
         sasl:
           mechanisn: PLAIN
-  kafka.properties.sasl.mechanism=PLAIN
-spring.kafka.properties.bootstrap.servers=pkc-lzvrd.us-west4.gcp.confluent.cloud:9092
-spring.kafka.properties.sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModule   required username='{{ CLUSTER_API_KEY }}'   password='{{ CLUSTER_API_SECRET }}';
-spring.kafka.properties.security.protocol=SASL_SSL
