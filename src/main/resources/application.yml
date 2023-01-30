@@ -1,0 +1,18 @@
+---
+# Kafka
+spring:
+  kafka:
+    consumer:
+      bootstrap-servers: localhost:9092
+      group-id: group_id
+      auto-offset-reset: earliest
+     # key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+     # value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+    admin:
+      properties:
+        sasl:
+          mechanisn: PLAIN
+  kafka.properties.sasl.mechanism=PLAIN
+spring.kafka.properties.bootstrap.servers=pkc-lzvrd.us-west4.gcp.confluent.cloud:9092
+spring.kafka.properties.sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModule   required username='{{ CLUSTER_API_KEY }}'   password='{{ CLUSTER_API_SECRET }}';
+spring.kafka.properties.security.protocol=SASL_SSL
